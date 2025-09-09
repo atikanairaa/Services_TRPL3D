@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: order-service
+
+server:
+  port: 8083  # port untuk order-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # alamat eureka server
+    register-with-eureka: true
+    fetch-registry: true

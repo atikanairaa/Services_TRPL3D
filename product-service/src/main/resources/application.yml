@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: produk-service
+
+server:
+  port: 8081  # port untuk pelanggan-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # alamat eureka server
+    register-with-eureka: true
+    fetch-registry: true
