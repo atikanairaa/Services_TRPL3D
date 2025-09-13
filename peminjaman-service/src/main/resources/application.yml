@@ -1,9 +1,9 @@
 spring:
   application:
-    name: buku-service
+    name: peminjaman-service
 
 server:
-  port: 8085  # port untuk buku-service
+  port: 8086  # port untuk peminjaman-service
 
 eureka:
   client:
