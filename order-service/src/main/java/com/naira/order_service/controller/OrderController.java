@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.naira.order_service.model.Order;
 import com.naira.order_service.service.OrderService;
+import com.naira.order_service.vo.ResponseTemplate;
 
 @RestController
 @RequestMapping("/api/order")
@@ -42,4 +43,11 @@ public class OrderController {
         orderService.deleteOrder(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/produk/{id}")
+    public ResponseEntity<List<ResponseTemplate>> getOrderWithProductById(@PathVariable Long id) {
+        List<ResponseTemplate> responseTemplate = orderService.getOrderWithProdukById(id);
+        return responseTemplate != null ? ResponseEntity.ok(responseTemplate): ResponseEntity.notFound().build();
+    }
+
 }
