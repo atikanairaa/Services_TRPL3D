@@ -4,14 +4,19 @@ import com.naira.pengembalian_service.model.Pengembalian;
 
 public class ResponseTemplate {
     Pengembalian pengembalian;
+    Buku buku;
+    Anggota anggota;
     Peminjaman peminjaman;
 
     public ResponseTemplate(){
 
     }
 
-    public ResponseTemplate(Pengembalian pengembalian, Peminjaman peminjaman) {
+
+    public ResponseTemplate(Pengembalian pengembalian, Buku buku, Anggota anggota, Peminjaman peminjaman) {
         this.pengembalian = pengembalian;
+        this.buku = buku;
+        this.anggota = anggota;
         this.peminjaman = peminjaman;
     }
 
@@ -19,8 +24,29 @@ public class ResponseTemplate {
         return pengembalian;
     }
 
+
     public void setPengembalian(Pengembalian pengembalian) {
         this.pengembalian = pengembalian;
+    }
+
+
+    public Buku getBuku() {
+        return buku;
+    }
+
+
+    public void setBuku(Buku buku) {
+        this.buku = buku;
+    }
+
+
+    public Anggota getAnggota() {
+        return anggota;
+    }
+
+
+    public void setAnggota(Anggota anggota) {
+        this.anggota = anggota;
     }
 
 
