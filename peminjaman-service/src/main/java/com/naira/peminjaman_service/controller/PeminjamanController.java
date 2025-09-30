@@ -33,7 +33,7 @@ public class PeminjamanController {
         return peminjaman != null ? ResponseEntity.ok(peminjaman) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping // Modified to accept Peminjaman object directly
     public Peminjaman createPeminjaman(@RequestBody Peminjaman peminjaman) {
         return peminjamanService.createPeminjaman(peminjaman);
     }
@@ -49,5 +49,4 @@ public class PeminjamanController {
         List<ResponseTemplate> responseTemplate = peminjamanService.getPeminjamanWithBookById(id);
         return responseTemplate != null ? ResponseEntity.ok(responseTemplate): ResponseEntity.notFound().build();
     }
-
 }
