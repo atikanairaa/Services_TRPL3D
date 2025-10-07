@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: peminjaman-service
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  mail:
+    host: smtp.gmail.com
+    port: 587             
+    username: atikanaira07@gmail.com 
+    password: gwriujcrbhsmnubg
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  
+  # NEW: MongoDB Configuration
+  data:
+    mongodb:
+      # Gunakan URI lengkap termasuk kredensial dan authSource
+      # Ganti 'perpustakaan_read_db' dengan nama database yang Anda inginkan,
+      # misalnya, 'peminjaman_read_model' agar konsisten dengan contoh kode.
+      uri: mongodb://admin:password@localhost:27017/peminjaman_read_model?authSource=admin
+
+server:
+  port: 8086  # port untuk peminjaman-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # alamat eureka server
+    register-with-eureka: true
+    fetch-registry: true
