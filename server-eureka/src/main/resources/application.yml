@@ -4,6 +4,10 @@ spring:
 server:
   port: 8761
 eureka:
+  instance:
+    # Beritahu Eureka untuk menggunakan hostname 'eureka' saat berkomunikasi
+    # Ini adalah nama container-nya di dalam jaringan Docker.
+    hostname: eureka
   client:
     register-with-eureka: false
     fetch-registry: false
@@ -11,5 +15,3 @@ logging:
   level:
     com.netflix.eureka: OFF
     com.netflix.discovery: OFF
-
-    

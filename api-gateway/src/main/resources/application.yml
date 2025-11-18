@@ -1,5 +1,3 @@
-## YAML Template.
----
 server:
     port: 9000
     
@@ -8,26 +6,29 @@ spring:
         name: API-GATEWAY
     cloud:
         gateway:
-                mvc:
-                    routes:
-                        - id: product
-                          uri: lb://product-service
-                          predicates: 
-                            - Path=/api/produk/**
-                        - id: pelanggan
-                          uri: lb://pelanggan-service
-                          predicates: 
-                            - Path=/api/pelanggan/**
-                        - id: order
-                          uri: lb://order-service
-                          predicates: 
-                            - Path=/api/order/**
-                    
+            # HAPUS level 'mvc' dari sini. 'routes' harus sejajar dengan 'gateway'.
+            routes:
+                - id: product-service
+                  uri: lb://PRODUCT-SERVICE # Pastikan nama ini cocok dengan nama di Eureka
+                  predicates: 
+                    - Path=/api/produk/**
+
+                - id: pelanggan-service
+                  uri: lb://PELANGGAN-SERVICE
+                  predicates: 
+                    - Path=/api/pelanggan/**
+
+                - id: order-service
+                  uri: lb://ORDER-SERVICEkubect
+                  predicates: 
+                    - Path=/api/order/**
+
+# --- KONFIGURASI EUREKA UNTUK DOCKER ---
 eureka:
-    client:
-        register-with-eureka: true
-        fetch-registry: true
-        service-url:
-            defaultZone: http://localhost:8761/eureka/
-    instance: 
-        hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+  instance:
+    prefer-ip-address: true
